@@ -1,0 +1,74 @@
+from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.messages import SystemMessage, HumanMessage
+from dotenv import load_dotenv
+from instruction import INSTRUCTION
+load_dotenv()
+import os
+def get_info(thong_tin_buu_kien: str):
+    key = os.getenv("GOOGLE_API_KEY")
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=key)
+    context = []
+    context.append(SystemMessage(content=INSTRUCTION))
+    context.append(HumanMessage(content=f"Nội dung bưu kiện: {thong_tin_buu_kien}"))
+    response = llm.invoke(context)
+    return response.content
+
+if __name__ == "__main__":
+    noi_dung="""
+Nguyen Van A (+84)91*****23
+123 Đường ABC, Phường XYZ, Quận 1, Hồ Chí Minh, Việt Nam
+
+Thay đổi địa chỉ
+
+(PT Cửa hàng Chính hãng
+
+—= [LS1] Combo 2 chai Dầu gội XyzCare
+2 sản phẩm
+Chính hãng 100% Trả hàng miễn phí
+: _ Freeship
+x1 450.000đ
+
+——&. Quà miễn phí [GIFT] Sữa tắm XyzCare
+Mặc định
+
+Chính hãng 100%
+Freeship
+
+Trả hàng miễn phí
+
+x1
+
+í\ Trả hàng miễn phí thuận tiện
+
+© Liên hệ với người bán 9›
+
+Vấn đề về sản phẩm, trước khi vận chuyển và các câu hỏi khác
+
+Thay đổi địa chỉ Hủy đơn hàng
+
+‹ Đã đặt hàng
+G) Liên hệ với người bán L2
+
+Vấn đề về sản phẩm, trước khi vận chuyển và các câu hỏi khác
+
+(2) Liên hệ với TikTok ›
+Vấn đề về tài khoản, thanh toán, khiếu nại và sau vận chuyển
+
+Tổng quan đơn hàng
+
+Tổng phụ 450.000đ
+Vận chuyển 45.000đ
+Phiếu giảm giá -30.000đ
+Phiếu giảm giá của người bán -20.000đ
+Phiếu giảm giá vận chuyển của TikTok -45.000đ
+
+Tổng 400.000đ
+
+Chi tiết đơn hàng
+
+Số đơn hàng 5900123456789 (©
+Ngày đặt hàng 30 tháng 9 2025, 09:45 SA
+Phương thức thanh toán Cash on Delivery
+
+Thay đổi địa chỉ Hủy đơn hàng"""
+    print(get_info(noi_dung))   
