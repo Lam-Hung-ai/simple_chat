@@ -5,8 +5,8 @@ def get_text_from_image(image_path: str):
     
     with open(image_path, "rb") as f:
         image_data = base64.b64encode(f.read()).decode("utf-8")
-    key = "AIzaSyB2CSv_dxe3ghDyOZUWv0b7W__rc8Ct0cU"
-    llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", api_key=key)
+    key = "AIzaSyAvxhnEnALX3hxxiOC9q0VLNwYAOrpOk2k"
+    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=key)
 
     message = {
         "role": "user",
