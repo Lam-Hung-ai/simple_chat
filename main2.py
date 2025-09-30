@@ -3,7 +3,7 @@ from chat import get_info_with_structure, get_text_from_images
 from instruction import INSTRUCTION_2
 
 if __name__ == "__main__":
-    key = ""
+    key = "AIzaSyB2CSv_dxe3ghDyOZUWv0b7W__rc8Ct0cU"
     # Nên dùng đường dẫn tuyệt đối để tránh lỗi
     text_images = get_text_from_images(["/home/lamhung/code/simple_chat/images/3.jpeg", "/home/lamhung/code/simple_chat/images/4.jpeg"])
     noi_dung = "\n".join(text_images)
