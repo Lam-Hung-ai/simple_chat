@@ -9,7 +9,7 @@ source ./env/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
-- Lấy API key của [google studio](https://aistudio.google.com/api-keys) cho vào file .env   
+- Cập nhật biến key trong file main.py
 - Chạy chương trình
 ```
 python3 main.py

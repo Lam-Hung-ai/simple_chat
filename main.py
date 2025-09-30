@@ -1,11 +1,8 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
-from dotenv import load_dotenv
 from instruction import INSTRUCTION
-load_dotenv()
-import os
 def get_info(thong_tin_buu_kien: str):
-    key = os.getenv("GOOGLE_API_KEY")
+    key = "AIzaSyB2CSv_dxe3ghDyOZUWv0b7W__rc8Ct0cU"
     llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=key)
     context = []
     context.append(SystemMessage(content=INSTRUCTION))
