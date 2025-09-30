@@ -1,14 +1,5 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.messages import SystemMessage, HumanMessage
 from instruction import INSTRUCTION
-def get_info(thong_tin_buu_kien: str):
-    key = ""
-    llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=key)
-    context = []
-    context.append(SystemMessage(content=INSTRUCTION))
-    context.append(HumanMessage(content=f"Nội dung bưu kiện: {thong_tin_buu_kien}"))
-    response = llm.invoke(context)
-    return response.content
+from chat import get_info
 
 if __name__ == "__main__":
     noi_dung="""
@@ -68,4 +59,5 @@ Ngày đặt hàng 30 tháng 9 2025, 09:45 SA
 Phương thức thanh toán Cash on Delivery
 
 Thay đổi địa chỉ Hủy đơn hàng"""
-    print(get_info(noi_dung))   
+    key = ""
+    print(get_info(noi_dung, INSTRUCTION, key))
