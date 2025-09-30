@@ -2,7 +2,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
 from instruction import INSTRUCTION
 def get_info(thong_tin_buu_kien: str):
-    key = "AIzaSyB2CSv_dxe3ghDyOZUWv0b7W__rc8Ct0cU"
+    key = ""
     llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key=key)
     context = []
     context.append(SystemMessage(content=INSTRUCTION))
